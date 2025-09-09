@@ -77,3 +77,8 @@ app.put('/api/posts/:id', (req, res) => {
 app.patch('/api/posts/:id', (req, res) => {
     res.send(`aggiornato con successo il post con id ${req.params.id} `)
 })
+
+//delete route for delete a specific post
+app.delete('/api/posts/:id', (req, res) => {
+    res.send(`deleted post with id ${req.params.id}`)
+})
