@@ -57,8 +57,12 @@ app.get('/', (req, res) => {
 
 // show route specific post via id
 app.get('/api/posts/:id', (req, res) => {
+    const { id } = req.params
+    const post = blogArticles.find(item => item.id === parseInt(id))
 
-    res.send(`ha selezionato il post con id: ${req.params.id}`)
+
+
+    res.json(post)
 
 })
 
