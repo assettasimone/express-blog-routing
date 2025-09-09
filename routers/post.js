@@ -53,12 +53,14 @@ router.get('/:id', (req, res) => {
 //create
 router.post('/', (req, res) => {
 
-    res.send('hai creato un nuovo post')
+    res.send(`hai creato un nuovo post ${req.body}`)
 })
 
 //Update a post with a specific id
 router.put('/:id', (req, res) => {
     res.send(`hai aggiornato il post con id ${req.params.id}`)
+
+
 })
 
 //patch a post with specific id
@@ -68,7 +70,21 @@ router.patch('/:id', (req, res) => {
 
 //delete route for delete a specific post
 router.delete('/:id', (req, res) => {
-    res.send(`deleted post with id ${req.params.id}`)
+    const { id } = req.params
+
+
+    const index = blogArticles.findIndex(item => item.id === parseInt(id))
+    console.log(index)
+    if (index > 0) {
+        const deletedPost = blogArticles.splice(index, 1)
+        res.send(`deleted post with id ${req.params.id}: ${deletedPost[0].title}`)
+    } else {
+        res.status(404).send('element not found')
+    }
+
+
+
+
 })
 
 
