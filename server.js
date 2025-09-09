@@ -41,14 +41,35 @@ const blogArticles = [
     }
 ]
 
-
+//for use sttic resources
 app.use(express.static('public'))
 
 app.listen(port, () => {
     console.log(`App listening on port http://localhost:${port}`)
 })
 
+
+//index
 app.get('/', (req, res) => {
 
     res.send('First route')
 })
+
+// show route specific post via id
+app.get('/api/posts/:id', (req, res) => {
+
+    res.send(`ha selezionato il post con id: ${req.params.id}`)
+
+})
+
+//create
+app.post('/api/posts/', (req, res) => {
+
+    res.send('hai creato un nuovo post')
+})
+
+//Update a post with a specific id
+app.put('/api/posts/:id', (req, res) => {
+    res.send(`hai aggiornato il post con id ${req.params.id}`)
+})
+
