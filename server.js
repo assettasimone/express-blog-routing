@@ -73,3 +73,7 @@ app.put('/api/posts/:id', (req, res) => {
     res.send(`hai aggiornato il post con id ${req.params.id}`)
 })
 
+//patch a post with specific id
+app.patch('/api/posts/:id', (req, res) => {
+    res.send(`aggiornato con successo il post con id ${req.params.id} `)
+})
