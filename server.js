@@ -52,7 +52,7 @@ app.listen(port, () => {
 //index
 app.get('/', (req, res) => {
 
-    res.send('First route')
+    res.json(blogArticles)
 })
 
 // show route specific post via id
